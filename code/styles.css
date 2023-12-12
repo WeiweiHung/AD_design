@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 100vw; /* 使用相對於視窗寬度的百分比 */
+    height: 100vh; /* 使用相對於視窗高度的百分比 */
+    background-image: url('BG.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#character {
+    width: 10%; /* 設定角色寬度為 .game-container 寬度的 10% */
+    height: auto; /* 保持高度自動調整，以保持圖片比例 */
+    background-image: url('stand-left.png'); /* 預設是stand向左的圖 */
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}

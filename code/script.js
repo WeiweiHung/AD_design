@@ -5,10 +5,12 @@ let isFacingRight = false;
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'a' || event.key === 'ArrowLeft') {
+        console.log('Key pressed:', event.key);
         isWalking = true;
         isFacingRight = false;
         updateCharacter();
     } else if (event.key === 'd' || event.key === 'ArrowRight') {
+        console.log('Key pressed:', event.key);
         isWalking = true;
         isFacingRight = true;
         updateCharacter();
@@ -20,6 +22,12 @@ document.addEventListener('keyup', (event) => {
         isWalking = false;
         updateCharacter();
     }
+});
+
+document.addEventListener('contextmenu', (event) => {
+    event.preventDefault(); // 防止右鍵點擊的默認行為
+    isWalking = false;
+    updateCharacter();
 });
 
 function updateCharacter() {
