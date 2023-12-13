@@ -23,20 +23,17 @@ document.addEventListener('contextmenu', (event) => {
 });
 
 document.addEventListener('touchstart', (event) => {
-    touchStartX = event.touches[0].clientX;
-});
+    const touchX = event.touches[0].clientX;
+    const halfScreenWidth = window.innerWidth / 2;
 
-document.addEventListener('touchend', (event) => {
-    const touchEndX = event.changedTouches[0].clientX;
-    const deltaX = touchEndX - touchStartX;
-
-    if (deltaX > 0) {
-        startWalking(true); // 向右移動
-    } else {
+    if (touchX < halfScreenWidth) {
         startWalking(false); // 向左移動
+    } else {
+        startWalking(true); // 向右移動
     }
 });
 
+document.addEventListener('touchend', stopWalking);
 document.addEventListener('touchcancel', stopWalking);
 
 function startWalking(right) {
