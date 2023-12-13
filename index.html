@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <meta property="og:image" content="" id="dogImage">
+    <title>浪浪</title>
+</head>
+<body>
+    <div class="game-container">
+        <div id="character"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // 使用 JavaScript 生成 :dog2: emoji，並轉換成 Base64 編碼
+        const canvas = document.createElement('canvas');
+        canvas.width = 128;
+        canvas.height = 128;
+        const context = canvas.getContext('2d');
+        context.font = '96px sans-serif';
+        context.fillText('🐕', 0, 96);
+        const base64 = canvas.toDataURL('image/png');
+
+        // 將 Base64 編碼數據設置到 og:image 的 content 中
+        document.getElementById('dogImage').setAttribute('content', base64);
+    </script>
+</body>
+</html>
