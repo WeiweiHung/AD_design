@@ -1,7 +1,7 @@
 const character = document.getElementById('character');
-
 let isWalking = false;
 let isFacingRight = false;
+let touchStartX = 0;
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'a' || event.key === 'ArrowLeft') {
@@ -21,9 +21,6 @@ document.addEventListener('contextmenu', (event) => {
     event.preventDefault();
     stopWalking();
 });
-
-// 添加觸控事件處理邏輯
-let touchStartX = 0;
 
 document.addEventListener('touchstart', (event) => {
     touchStartX = event.touches[0].clientX;
