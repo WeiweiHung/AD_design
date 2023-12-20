@@ -2,6 +2,7 @@ const character = document.getElementById('character');
 let isWalking = false;
 let isFacingRight = false;
 let touchStartX = 0;
+let walkFrame = 1; // 起始的步行動畫幀數
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'a' || event.key === 'ArrowLeft') {
@@ -52,7 +53,9 @@ function stopWalking() {
 
 function updateCharacter() {
     if (isWalking) {
-        character.style.backgroundImage = `url('${isFacingRight ? 'walk-right.png' : 'walk-left.png'}')`;
+        const walkAnimation = isFacingRight ? 'walk-right' : 'walk-left';
+        character.style.backgroundImage = `url('${walkAnimation + walkFrame}.png')`;
+        walkFrame = (walkFrame % 6) + 1; // 循環 1 到 6 的動畫幀
     } else {
         character.style.backgroundImage = `url('${isFacingRight ? 'stand-right.png' : 'stand-left.png'}')`;
     }
