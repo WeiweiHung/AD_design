@@ -65,6 +65,7 @@ function updateCharacter() {
         }
     } else {
         character.style.backgroundImage = `url('${isFacingRight ? 'stand-right.png' : 'stand-left.png'}')`;
+        console.log("000")
     }
 }
 
