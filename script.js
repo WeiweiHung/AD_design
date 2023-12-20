@@ -3,6 +3,8 @@ let isWalking = false;
 let isFacingRight = false;
 let touchStartX = 0;
 let walkFrame = 1; // 起始的步行動畫幀數
+let framesPerImage = 4;//計算貞數
+let currentFrameCount = 0;//計算貞數
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'a' || event.key === 'ArrowLeft') {
@@ -55,7 +57,12 @@ function updateCharacter() {
     if (isWalking) {
         const walkAnimation = isFacingRight ? 'walk-right' : 'walk-left';
         character.style.backgroundImage = `url('${walkAnimation + walkFrame}.png')`;
-        walkFrame = (walkFrame % 6) + 1; // 循環 1 到 6 的動畫幀
+        currentFrameCount++;
+
+        if (currentFrameCount === framesPerImage) {
+            walkFrame = (walkFrame % 6) + 1; // 循環 1 到 6 的動畫幀
+            currentFrameCount = 0;
+        }
     } else {
         character.style.backgroundImage = `url('${isFacingRight ? 'stand-right.png' : 'stand-left.png'}')`;
     }

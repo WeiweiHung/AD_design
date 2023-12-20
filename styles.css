@@ -14,11 +14,11 @@ body {
 
 #character {
     width: 15%;
-    padding-top: 11.25%; /* 9 / 16 * 100% */ /* 設定寬高比，此處假設 1:1，你可以根據實際情況調整這個值 */
+    padding-top: 15%; /* 9 / 16 * 100% */ /* 設定寬高比，此處假設 1:1，你可以根據實際情況調整這個值 */
     background-image: url('stand-left.png');
     background-size: cover;
     position: absolute;
-    bottom: 15%; /* 調整這個值以改變角色距離底部的高度 */
+    bottom: 3%; /* 調整這個值以改變角色距離底部的高度 */
     left: 50%;
     transform: translateX(-50%);
 }
